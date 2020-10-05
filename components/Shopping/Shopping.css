@@ -1,13 +1,13 @@
 .shopping-container {
-  position: fixed;
   width: 97%;
   height: 90%;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   margin: auto;
   padding: var(--spacing-large);
-  background-color:var(--color-unlight);
+  background-color: var(--color-unlight);
   box-shadow: var(--box-shadow);
 }
 .shopping-element__name {
@@ -16,5 +16,17 @@
 }
 .shopping-element__price {
   padding: var(--spacing-medium);
-    color: var(--color-unaccent );
+  color: var(--color-unaccent);
+}
+.shopping__close {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 20px;
+  right: 20px;
+  background-image: url(../../img/cancel.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  cursor: pointer;
 }

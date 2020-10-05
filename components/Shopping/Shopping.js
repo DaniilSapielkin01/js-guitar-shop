@@ -1,7 +1,13 @@
 class Shopping {
+  hanleClear() {
+    ROOT_SHOPPING.innerHTML = "";
+  }
+
   render() {
     const productsStore = localStorageUtil.getProducts();
     let htmlCatalog = "";
+    let sumCatalog = 0;
+
     CATALOG.forEach(({ id, name, price }) => {
       if (productsStore.indexOf(id) !== -1) {
         htmlCatalog += `  
@@ -10,12 +16,20 @@ class Shopping {
             <td  class = "shopping-element__price"> 💰 ${price.toLocaleString()} USD  </td>
         </tr>
        `;
+        sumCatalog += price;
       }
     });
 
     const html = `
     <div class = "shopping-container" >
-        <table> ${htmlCatalog} </table>
+     <div class = "shopping__close" onclick = "shoppingPage.hanleClear()"></div>
+      <table> 
+      ${htmlCatalog} 
+        <tr>
+          <td class = "shopping-element__name" >💸 Сумма: </td>
+          <td  class = "shopping-element__price"> 💰 ${sumCatalog.toLocaleString()} USD  </td>
+        </tr>
+      </table>
     </div>
     `;
 
